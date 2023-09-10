@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Upload a File</h1>
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+</form>
+<h2>Existing Files:</h2>
+{% for file in files %}
+<a href="{{ url_for('download_file', name=file) }}">{{ file }}</a><br>
+{% endfor %}
+{% endblock %}
